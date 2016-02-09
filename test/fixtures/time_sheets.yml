@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  required_duration: 1
+  minimum_duration: 1
+  actual_duration: 1
+
+two:
+  required_duration: 1
+  minimum_duration: 1
+  actual_duration: 1

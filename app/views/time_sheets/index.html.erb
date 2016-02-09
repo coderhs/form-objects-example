@@ -1,0 +1,10 @@
+<br>
+  <%= flash[:notice] %>
+<br><br>
+
+<%= simple_form_for @time_sheet do |f| %>
+  <%= f.input :required_duration_in_hours, placeholder: 'In hours.', label: 'Required Duration' %>
+  <%= f.input :minimum_duration_in_hours, placeholder: 'In hours.', label: 'Minimum Duration' %>
+  <%= f.input :actual_duration_in_hours, placeholder: 'In hours.', label: 'Actual Duration' %>
+  <%= f.submit %>
+<% end %>
