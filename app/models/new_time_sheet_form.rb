@@ -1,7 +1,7 @@
 class NewTimeSheetForm
   include ActiveModel::Model
 
-  MAXVALUE = 24*60*60
+  MAXVALUE = 24
 
   attr_accessor(
     :required_duration_in_hours,
