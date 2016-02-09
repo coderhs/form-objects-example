@@ -1,11 +1,11 @@
 class TimeSheetsController < ApplicationController
   def index
-    @time_sheet = TimeSheet.new
+    @time_sheet = NewTimeSheetForm.new
   end
 
   def create
-    @time_sheet = TimeSheet.new(time_sheet_params)
-    if @time_sheet.save
+    @time_sheet = NewTimeSheetForm.new(new_time_sheet_params)
+    if @time_sheet.record
       redirect_to time_sheets_path, notice: 'Saved'
     else
       render 'index'
@@ -14,9 +14,9 @@ class TimeSheetsController < ApplicationController
 
   private
 
-  def time_sheet_params
-    params.require(:time_sheet).permit.merge!({:actual_duration => params.require(:time_sheet).fetch(:actual_duration_in_hours).to_f*60*60,
-                                        :required_duration => params.require(:time_sheet).fetch(:required_duration_in_hours).to_f*60*60,
-                                        :minimum_duration => params.require(:time_sheet).fetch(:minimum_duration_in_hours).to_f*60*60})
+  def new_time_sheet_params
+    params.require(:time_sheet).permit(:actual_duration_in_hours,
+                                        :required_duration_in_hours,
+                                        :minimum_duration_in_hours)
   end
 end
